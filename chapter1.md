@@ -6,7 +6,7 @@
 
 ## 无 new 函数实现
 
-```javascript
+```js
 var jQuery = function () {
     console.log('hello');
     return new jQuery();
