@@ -1,3 +1,3 @@
-# My Awesome Book
+# 《jQuery 源码解读》学习笔记
 
-This file file serves as your book's preface, a great place to describe your book's content and ideas.
+## [《jQuery 源码解读》](https://github.com/songjinzhong/JQuerySource)
