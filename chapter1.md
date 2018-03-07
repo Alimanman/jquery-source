@@ -27,10 +27,12 @@ jQuery();//无限hello
 
 ###如何停止循环
 ```js
+//定义一个jQuery构造函数  
 var jQuery = function () {
     console.log('hello');
     return new jQuery.prototype.init();
 };
+//扩展jQuery原型
 jQuery.prototype = {
     init: function () {
         console.log('init');
@@ -38,4 +40,20 @@ jQuery.prototype = {
 };
 jQuery();//hello
          //init
+```
+这样写，再次调用激发的就是jQuery原型链下的init的方法，没有递归了有木有。
+
+###新问题来了
+```js
+jQuery.init();//jQuery.init is not a function
+```
+**为什么呢？**
+因为new的实例基于init的，init原型下没有init方法了。
+
+**应该怎么办？**
+把init的原型等同于jquery的原型，没错！
+
+```js
+jQuery.prototype.init.prototype = jQuery.prototype;
+jQuery().init() //'init'
 ```
