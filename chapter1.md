@@ -6,9 +6,13 @@
 
 ## 无 new 函数实现
 
+我们知道实例化对象都需要new，但是jQuery没有。
+直$('#id')就生成了jQuery对象。 
+
 ```js
 var jQuery = function () {
     console.log('hello');
     return new jQuery();
 };
+jQuery();
 ```
