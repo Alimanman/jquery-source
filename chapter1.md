@@ -9,6 +9,9 @@
 我们知道实例化对象都需要new，但是jQuery没有。
 直$('#id')就生成了jQuery对象。 
 
+
+这个代码思路不错，return直接用new jQuery，但是结果。。。
+会一直在控制台打印hello
 ```js
 var jQuery = function () {
     console.log('hello');
