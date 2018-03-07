@@ -16,7 +16,7 @@ var jQuery = function () {
     console.log('hello');
     return new jQuery();
 };
-jQuery();
+jQuery();//无限hello
 ```
 但实际结果，会一直在控制台打印hello...
 因为，第一次jQuery() 会创建一个 new jQuery()，new jQuery() 又会创建一个 new jQuery()...
@@ -36,5 +36,6 @@ jQuery.prototype = {
         console.log('init');
     }
 };
-jQuery();
+jQuery();//hello
+         //init
 ```
