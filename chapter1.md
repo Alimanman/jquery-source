@@ -5,6 +5,7 @@
 2. $('#id').css().html().hide() 链式调用
 
 ## 无 new 函数实现
+---
 
 我们知道实例化对象都需要new，但是jQuery没有。
 直$('#id')就生成了jQuery对象。 
@@ -57,3 +58,12 @@ jQuery.init();//jQuery.init is not a function
 jQuery.prototype.init.prototype = jQuery.prototype;
 jQuery().init() //'init'
 ```
+
+## 链式调用
+---
+函数结尾 return this 即可。
+```js
+$('#id').css().html().hide() 
+```
+
+
