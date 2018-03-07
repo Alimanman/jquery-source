@@ -51,7 +51,7 @@ jQuery.init();//jQuery.init is not a function
 因为new的实例基于init的，init原型下没有init方法了。
 
 **应该怎么办？**
-把init的原型等同于jquery的原型，没错！
+通过prototype，把jquery的原型继承给init的原型，没错！
 
 ```js
 jQuery.prototype.init.prototype = jQuery.prototype;
