@@ -1,6 +1,6 @@
 # 《jQuery 源码解读》- 学习笔记
 
-## [《jQuery 源码解读》](https://github.com/songjinzhong/JQuerySource)
+## [https://github.com/songjinzhong/JQuerySource](https://github.com/songjinzhong/JQuerySource)
 
 > # 授之于鱼不如授之于渔
 
