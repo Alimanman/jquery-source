@@ -26,3 +26,15 @@ jQuery();
 递归啊。。。有没有
 
 ###如何停止循环
+```js
+var jQuery = function () {
+    console.log('hello');
+    return new jQuery.prototype.init();
+};
+jQuery.prototype = {
+    init: function () {
+        console.log('init');
+    }
+};
+jQuery();
+```
