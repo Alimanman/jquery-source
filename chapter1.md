@@ -71,6 +71,12 @@ jQuery.fn = jQuery.prototype = {
 jQuery.fn.init.prototype = jQuery.fn;
 ```
 
+### 指定构造器
+
+```js
+constructor: jQuery
+```
+
 ## 链式调用
 ---
 
