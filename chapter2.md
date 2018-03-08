@@ -1,6 +1,15 @@
 ## init 构造器
 ---
 
+### 为何jQuery可以这样写？
+
+链式调用的好处，就是写出来的代码非常简洁，而且代码返回的都是同一个对象，提高代码效率。
+
+```js
+$('#id').css().html().hide()
+```
+
+### 核心就在return this
 ```js
 init: function (selector) {
     var ele = document.querySelectorAll(selector);
@@ -19,3 +28,4 @@ css: function (attr, val) {
     }
 },
 ```
+
