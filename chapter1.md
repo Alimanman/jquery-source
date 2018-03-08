@@ -63,7 +63,6 @@ jQuery().init() //'init'
 > 函数的 prototype 属性是在**函数作为构造器**使用的时候，作为其构造对象的**原型**。
 
 ### 简化写法
----
 ```js
 jQuery.fn = jQuery.prototype = {
     //
