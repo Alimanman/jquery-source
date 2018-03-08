@@ -27,6 +27,7 @@ jQuery();//无限hello
 递归啊。。。有没有
 
 ###如何停止循环
+
 ```js
 //定义一个jQuery构造函数  
 var jQuery = function () {
@@ -44,7 +45,8 @@ jQuery();//hello
 ```
 这样写，再次调用激发的就是jQuery原型链下的init的方法，没有递归了有木有。
 
-###新问题来了
+### 新问题来了
+
 ```js
 jQuery.init();//jQuery.init is not a function
 ```
@@ -60,11 +62,39 @@ jQuery().init() //'init'
 ```
 > 函数的 prototype 属性是在**函数作为构造器**使用的时候，作为其构造对象的**原型**。
 
+### 简化写法
+---
+```js
+jQuery.fn = jQuery.prototype = {
+    //
+}
+jQuery.fn.init.prototype = jQuery.fn;
+```
+
 ## 链式调用
 ---
 函数结尾 return this 即可。
 ```js
 $('#id').css().html().hide() 
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
