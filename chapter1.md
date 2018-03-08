@@ -49,3 +49,11 @@
     window.jQuery = window.$ = jQuery;
 })(window);
 ```
+
+### 匿名函数自动实行
+
+```js
+(function(){
+    //
+})();
+```
