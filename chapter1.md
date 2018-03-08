@@ -77,6 +77,12 @@ jQuery.fn.init.prototype = jQuery.fn;
 constructor: jQuery
 ```
 
+### 外部公共接口
+
+```js
+window.jQuery = window.$ = jQuery;
+```
+
 ## 链式调用
 ---
 
