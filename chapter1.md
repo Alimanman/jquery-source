@@ -58,8 +58,7 @@ jQuery.init();//jQuery.init is not a function
 jQuery.prototype.init.prototype = jQuery.prototype;
 jQuery().init() //'init'
 ```
->prototype
-函数的 prototype 属性是在**函数作为构造器**使用的时候，作为其构造对象的**原型**。
+> 函数的 prototype 属性是在**函数作为构造器**使用的时候，作为其构造对象的**原型**。
 
 ## 链式调用
 ---
