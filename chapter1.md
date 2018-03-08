@@ -1,113 +1,51 @@
-# 01-总体架构
-
-** jQuery 使用上的几大特点：**
-1. $('#id') 函数方式直接生成jQuery对象
-2. $('#id').css().html().hide() 链式调用
-
-## 无 new 函数实现
+##总体架构
 ---
-
-我们知道实例化对象都需要new，但是jQuery没有。
-直$('#id')就生成了jQuery对象。 
-
-
-这个代码思路不错，return直接用new jQuery，因为这样可以省略new。
 ```js
-var jQuery = function () {
-    console.log('hello');
-    return new jQuery();
-};
-jQuery();//无限hello
+(function (window) {
+    // jQuery 变量，用闭包避免环境污染
+    var jQuery = (function () {
+        var jQuery = function (selector, context) {
+            return new jQuery.fn.init(selector, context, rootjQuery);
+        };
+
+        // 一些变量声明
+
+        jQuery.fn = jQuery.prototype = {
+            constructor: jQuery,
+            init: function (selector, context, rootjQuery) {
+                // 下章会重点讨论
+            }
+
+            // 原型方法
+        };
+
+        jQuery.fn.init.prototype = jQuery.fn;
+
+        jQuery.extend = jQuery.fn.extend = function () { };//已介绍
+
+        jQuery.extend({
+            // 一堆静态属性和方法
+            // 用 extend 绑定，而不是直接在 jQuery 上写
+        });
+
+        return jQuery;
+    })();
+
+    // 工具方法 Utilities
+    // 回调函数列表 Callbacks Object
+    // 异步队列 Defferred Object
+    // 浏览器功能测试 Support
+    // 数据缓存 Data
+    // 队列 Queue
+    // 属性操作 Attributes
+    // 事件系统 Events
+    // 选择器 Sizzle
+    // DOM遍历 Traversing
+    // 样式操作 CSS（计算样式、内联样式）
+    // 异步请求 Ajax
+    // 动画 Effects
+    // 坐标 Offset、尺寸 Dimensions
+
+    window.jQuery = window.$ = jQuery;
+})(window);
 ```
-但实际结果，会一直在控制台打印hello...
-因为，第一次jQuery() 会创建一个 new jQuery()，new jQuery() 又会创建一个 new jQuery()...
-
-> 从前有座山山里有座庙庙里有个老和尚...
-
-递归啊。。。有没有
-
-###如何停止循环
-
-```js
-//定义一个jQuery构造函数  
-var jQuery = function () {
-    console.log('hello');
-    return new jQuery.prototype.init();
-};
-//扩展jQuery原型
-jQuery.prototype = {
-    init: function () {
-        console.log('init');
-    }
-};
-jQuery();//hello
-         //init
-```
-这样写，再次调用激发的就是jQuery原型链下的init的方法，没有递归了有木有。
-
-### 新问题来了
-
-```js
-jQuery.init();//jQuery.init is not a function
-```
-**为什么呢？**
-因为new的实例基于init的，init原型下没有init方法了。
-
-**应该怎么办？**
-通过prototype，把jquery的原型继承给init的原型，没错！
-
-```js
-jQuery.prototype.init.prototype = jQuery.prototype;
-jQuery().init() //'init'
-```
-> 函数的 prototype 属性是在**函数作为构造器**使用的时候，作为其构造对象的**原型**。
-
-### 简化写法
-
-```js
-jQuery.fn = jQuery.prototype = {
-    //
-}
-jQuery.fn.init.prototype = jQuery.fn;
-```
-
-### 指定构造器
-
-```js
-constructor: jQuery
-```
-
-### 外部公共接口
-
-```js
-window.jQuery = window.$ = jQuery;
-```
-
-## 链式调用
----
-
-函数结尾 return this 即可。
-```js
-$('#id').css().html().hide() 
-```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
