@@ -6,4 +6,5 @@
   * [extend函数](chapter1/1.2.md)
 * [init构造器](chapter2.md)
 * [Sizzle选择器](chapter3.md)
+* [Callbacks](callbacks.md)
 
