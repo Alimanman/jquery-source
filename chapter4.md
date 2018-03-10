@@ -1,4 +1,5 @@
 ## Callbacks
+
 ---
 
 回调对象，函数的一个统一管理的方法。
@@ -10,7 +11,7 @@
 function fn1( value ) {
   console.log( value );
 }
- 
+
 function fn2( value ) {
   fn1("fn2 says: " + value);
   return false;
@@ -22,13 +23,14 @@ callbacks.add( fn1 );
 
 callbacks.fire( "foo!" );
 // 'foo!'
- 
+
 callbacks.add( fn2 );
- 
+
 callbacks.fire( "bar!" );
 // 'bar!'
 // 'fn2 says: bar!'
 ```
+
 通过add添加操作到队列当中，通过fire去执行这些操作。
 
 ### 模拟Callbacks函数
@@ -56,5 +58,6 @@ cba.add(fn1);
 cba.add(fn2);
 cba.fire();//fn1 fn2
 ```
+
 
 
